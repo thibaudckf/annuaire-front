@@ -9,7 +9,7 @@ import { Personne } from '../contact/Personne';
 })
 export class ApiService {
 
-  private API_URL = "http://localhost:3000/contacts";
+  private API_URL = "http://localhost:3000/contacts/";
 
   constructor(private http: HttpClient) {
 
@@ -34,5 +34,17 @@ export class ApiService {
 
   getByNum(num: string): Observable<Personne[]>{
     return this.http.get<Personne[]>(this.API_URL + `findByNum/${num}`);
+  }
+
+  addContact(personne: Personne){
+    return this.http.post(this.API_URL, personne);
+  }
+
+  setContact(id: number, personne: Personne){
+    return this.http.put(this.API_URL + `set/${id}`, personne);
+  }
+
+  deleteContact(id: number){
+    return this.http.delete(this.API_URL + `delete/${id}`);
   }
 }

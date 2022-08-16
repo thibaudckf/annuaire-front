@@ -1,29 +1,22 @@
 <div class="row">
     <div class="contacts" *ngFor="let contact of contacts | async">
-        <div class="card-body">
-           
-            <mat-card class="example-card">
+      <br><br>
+      <div class="card-body">
+            <mat-card class="contact-card">
                 <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"></div>
                   <mat-card-title>{{contact.prenom}} {{contact.nom}}</mat-card-title>
-                  <mat-card-subtitle>Catégorie</mat-card-subtitle>
                 </mat-card-header>
                 
                 <mat-card-content>
-                  <p>Numéro de téléphone: {{contact.numero}}</p>
+                  <p>{{contact.numero}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-button>LIKE</button>
-                  <button mat-button>SHARE</button>
+                  <button (click)="setContact(contact.id)">Modifier</button>     
+                  <button (click)="deleteContact(contact.id)">Supprimer</button>          
                 </mat-card-actions>
-            </mat-card>
-            
-           
+            </mat-card>     
         </div>
-
+        <br>
+        <br>
     </div>
-
-
 </div>
-
-

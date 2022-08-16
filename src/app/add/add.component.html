@@ -1,0 +1,20 @@
+<form #formumaire="ngForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input required matInput ngModel name="nom" >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Prénom</mat-label>
+        <input required matInput ngModel name="prenom">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Telephone</mat-label>
+        <span matPrefix>+262 &nbsp;</span>
+        <input required type="tel" matInput ngModel name="numero" placeholder="0692458975" >
+    </mat-form-field>
+   <button [disabled]="formumaire.invalid" (click)="addPersonne(formumaire)">Valider</button>
+</form> 
+
+
+
+<p>add works</p>
