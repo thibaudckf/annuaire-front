@@ -14,6 +14,7 @@ export class ContactComponent implements OnInit {
 
   contacts!: Observable<Personne[]>;
 
+
   constructor(private apiService: ApiService,
               private router: Router){}
 
@@ -29,7 +30,7 @@ export class ContactComponent implements OnInit {
     window.location.reload();
   }
 
-  public setContact(id: number){
+  public redirectForUpdate(id: number, contact:Personne){
     this.router.navigate([`/set/${id}`]);
   }
 

@@ -27,7 +27,7 @@ export class ApiService {
     return this.http.get<Personne[]>(this.API_URL + `findByFirstName/${firstName}`);
   }
 
-  getBytName(name: string): Observable<Personne[]>{
+  getByName(name: string): Observable<Personne[]>{
     return this.http.get<Personne[]>(this.API_URL + `findByName/${name}`);
   }
 
@@ -41,7 +41,7 @@ export class ApiService {
   }
 
   setContact(id: number, personne: Personne){
-    return this.http.put(this.API_URL + `set/${id}`, personne);
+    return this.http.patch(this.API_URL + `set/${id}`, personne);
   }
 
   deleteContact(id: number){

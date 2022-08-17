@@ -11,12 +11,13 @@
                   <p>{{contact.numero}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button (click)="setContact(contact.id)">Modifier</button>     
+                  <button (click)="redirectForUpdate(contact.id, contact)">Modifier</button>     
                   <button (click)="deleteContact(contact.id)">Supprimer</button>          
                 </mat-card-actions>
-            </mat-card>     
+            </mat-card>    
         </div>
         <br>
         <br>
     </div>
 </div>
+
