@@ -14,6 +14,7 @@ import { SetComponent } from './set/set.component';
 import { HomeComponent } from './home/home.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatDialog } from '@angular/material/dialog';
+import { ResearchComponent } from './research/research.component';
 
 
 
@@ -26,7 +27,8 @@ import { MatDialog } from '@angular/material/dialog';
     NotFoundComponent,
     AddComponent,
     SetComponent,
-    HomeComponent
+    HomeComponent,
+    ResearchComponent
    
   ],
   imports: [

@@ -13,11 +13,8 @@ import { ApiService } from '../services/api.service';
 export class SetComponent implements OnInit {
 
   id!: number;
-  contact!: Personne;
-  
- 
-  
-  
+  contact: Personne = new Personne();
+   
 
   constructor(private apiService: ApiService,
               private route: ActivatedRoute,
