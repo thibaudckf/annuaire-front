@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ResearchComponent } from './research/research.component';
 import { SetComponent } from './set/set.component';
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'set/:id', 
     component: SetComponent
+  },
+  {
+    path: 'recherche/critere/:crit/chaine/:ch', 
+    component: ResearchComponent
   },
   {
     path: '**', 

@@ -23,10 +23,7 @@ export class ContactComponent implements OnInit {
   }
 
   public deleteContact(id: number){
-    this.apiService.deleteContact(id).subscribe(
-      (reponse) => this.router.navigate(['']),
-      (erreur) => console.log(erreur)
-    );
+    this.apiService.deleteContact(id).subscribe();
     window.location.reload();
   }
 
