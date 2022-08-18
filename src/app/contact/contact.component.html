@@ -1,6 +1,5 @@
 <div class="row">
     <div class="contacts" *ngFor="let contact of contacts | async">
-      <br><br>
       <div class="card-body">
             <mat-card class="contact-card">
                 <mat-card-header>
@@ -11,13 +10,11 @@
                   <p>{{contact.numero}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button (click)="redirectForUpdate(contact.id, contact)">Modifier</button>     
-                  <button (click)="deleteContact(contact.id)">Supprimer</button>          
+                  <button class="greenButton" (click)="redirectForUpdate(contact.id, contact)">Modifier</button>     
+                  <button class="redButton" (click)="deleteContact(contact.id)">Supprimer</button>          
                 </mat-card-actions>
             </mat-card>    
         </div>
-        <br>
-        <br>
-    </div>
+    </div> 
 </div>
 

@@ -1,0 +1,16 @@
+.row{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .contacts {
+    max-width: 400px;
+  }
+  
+  .contact-card {
+      max-width: 400px;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 1%;
+    }
+  

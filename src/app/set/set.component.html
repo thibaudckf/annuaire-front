@@ -1,19 +1,26 @@
-<form #formumaire="ngForm">
-    <mat-form-field appearance="fill">
-        <mat-label>Nom</mat-label>
-        <input required matInput [ngModel]="contact.nom" name="nom" >
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Prénom</mat-label>
-        <input required matInput [ngModel]="contact.prenom"  name="prenom" >
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Telephone</mat-label>
-        <span matPrefix>+262 &nbsp;</span>
-        <input required type="tel" matInput [ngModel]="contact.numero" name="numero" placeholder="0692458975"  >
-    </mat-form-field>
-   <button [disabled]="formumaire.invalid" (click)="setPersonne(id, formumaire)">Valider</button>
-</form>
 
 
+<div id="contactForm">
+    <form #formulaire="ngForm">
+        <div id="formTitle"><h1><b>Modifier un contact</b></h1></div>
+        <mat-form-field appearance="fill">
+            <mat-label>Nom</mat-label>
+            <input type="text" required matInput [ngModel]="contact.nom" name="nom" >
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Prénom</mat-label>
+            <input type="text" required matInput [ngModel]="contact.prenom" name="prenom">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix>+262 &nbsp;</span>
+            <input type="text" type="tel" matInput [ngModel]="contact.numero" name="numero" placeholder="0692458975" >
+        </mat-form-field>
+        <div class="buttons">
+            <button class="greenButton" [disabled]="formulaire.invalid" (click)="setPersonne(id, formulaire)">Valider</button>
+            <button class="redButton" onclick="history.back()">Annuler</button>
+        </div>
+        
+    </form> 
 
+</div>
