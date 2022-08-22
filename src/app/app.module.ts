@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatCardModule } from '@angular/material/card'
+import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -13,7 +13,6 @@ import { FormsModule } from '@angular/forms';
 import { SetComponent } from './set/set.component';
 import { HomeComponent } from './home/home.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { MatDialog } from '@angular/material/dialog';
 import { ResearchComponent } from './research/research.component';
 
 
@@ -21,29 +20,29 @@ import { ResearchComponent } from './research/research.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ContactComponent,
-    NotFoundComponent,
-    AddComponent,
-    SetComponent,
-    HomeComponent,
-    ResearchComponent
+	declarations: [
+		AppComponent,
+		ContactComponent,
+		NotFoundComponent,
+		AddComponent,
+		SetComponent,
+		HomeComponent,
+		ResearchComponent
    
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatCardModule,
-    AppRoutingModule,
-    MatInputModule,
-    FormsModule,
-    MatSidenavModule,
+	],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		HttpClientModule,
+		MatCardModule,
+		AppRoutingModule,
+		MatInputModule,
+		FormsModule,
+		MatSidenavModule,
   
     
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,50 +1,50 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Contact } from "../contact/Personne";
+import { Contact } from '../contact/Personne';
 
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class ApiService {
 
-  private API_URL = "http://localhost:3000/contacts/";
+	private API_URL = 'http://localhost:3000/contacts/';
 
-  constructor(private http: HttpClient) {
+	constructor(private http: HttpClient) {
 
-  }
+	}
 
-  getAllContacts(): Observable<Contact[]> {
-    return this.http.get<Contact[]>(this.API_URL);
-  }
+	getAllContacts(): Observable<Contact[]> {
+		return this.http.get<Contact[]>(this.API_URL);
+	}
 
-  getById(id: number): Observable<Contact>{
-    return this.http.get<Contact>(this.API_URL + `findById/${id}`);
-  }
+	getById(id: number): Observable<Contact>{
+		return this.http.get<Contact>(this.API_URL + `findById/${id}`);
+	}
 
-  getByFirstName(firstname: string): Observable<Contact[]>{
-    return this.http.get<Contact[]>(this.API_URL + `findByFirstName/${firstname}`);
-  }
+	getByFirstName(firstname: string): Observable<Contact[]>{
+		return this.http.get<Contact[]>(this.API_URL + `findByFirstName/${firstname}`);
+	}
 
-  getByName(name: string): Observable<Contact[]>{
-    return this.http.get<Contact[]>(this.API_URL + `findByName/${name}`);
-  }
+	getByName(name: string): Observable<Contact[]>{
+		return this.http.get<Contact[]>(this.API_URL + `findByName/${name}`);
+	}
 
 
-  getByNum(num: string): Observable<Contact[]>{
-    return this.http.get<Contact[]>(this.API_URL + `findByNum/${num}`);
-  }
+	getByNum(num: string): Observable<Contact[]>{
+		return this.http.get<Contact[]>(this.API_URL + `findByNum/${num}`);
+	}
 
-  addContact(contact: Contact){
-    return this.http.post(this.API_URL, contact);
-  }
+	addContact(contact: Contact){
+		return this.http.post(this.API_URL, contact);
+	}
 
-  setContact(id: number, contact: Contact){
-    return this.http.patch(this.API_URL + `set/${id}`, contact);
-  }
+	setContact(id: number, contact: Contact){
+		return this.http.patch(this.API_URL + `set/${id}`, contact);
+	}
 
-  deleteContact(id: number){
-    return this.http.delete(this.API_URL + `delete/${id}`);
-  }
+	deleteContact(id: number){
+		return this.http.delete(this.API_URL + `delete/${id}`);
+	}
 }
