@@ -3,15 +3,15 @@
       <div class="card-body">
             <mat-card class="contact-card">
                 <mat-card-header>
-                  <mat-card-title>{{contact.prenom}} {{contact.nom}}</mat-card-title>
+                  <mat-card-title>{{contact.firstname}} {{contact.name}}</mat-card-title>
                 </mat-card-header>
                 
                 <mat-card-content>
-                  <p>{{contact.numero}}</p>
+                  <p>{{contact.phone}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button (click)="redirectForUpdate(contact.id, contact)">Modifier</button>     
-                  <button (click)="deleteContact(contact.id)">Supprimer</button>          
+                  <button class="greenButton" (click)="redirectForUpdate(contact.id, contact)">Modifier</button>     
+                  <button class="redButton" (click)="deleteContact(contact.id)">Supprimer</button>          
                 </mat-card-actions>
             </mat-card>    
         </div>

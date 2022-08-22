@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Navigation, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Personne } from '../contact/Personne';
+import { Contact } from "../contact/Personne";
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { ApiService } from '../services/api.service';
 export class SetComponent implements OnInit {
 
   id!: number;
-  contact: Personne = new Personne();
+  contact: Contact = new Contact();
    
 
   constructor(private apiService: ApiService,
@@ -32,7 +32,7 @@ export class SetComponent implements OnInit {
     
   }
 
-  setPersonne(id: number, formumaire: NgForm) {
+  setContact(id: number, formumaire: NgForm) {
     this.apiService.setContact(id, formumaire.value).subscribe(
       (reponse) => this.router.navigate(['/liste']),
       (erreur) => console.log(erreur)

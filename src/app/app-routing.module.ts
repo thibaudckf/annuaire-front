@@ -31,7 +31,7 @@ const routes: Routes = [
     component: SetComponent
   },
   {
-    path: 'recherche/critere/:crit/chaine/:ch', 
+    path: 'recherche/critere/:critere/chaine/:chaine', 
     component: ResearchComponent
   },
   {

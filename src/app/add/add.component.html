@@ -1,21 +1,21 @@
 <div id="contactForm">
-    <form #formulaire="ngForm">
+    <form #form="ngForm">
         <div id="formTitle"><h1><b>Ajouter un contact</b></h1></div>
         <mat-form-field appearance="fill">
             <mat-label>Nom</mat-label>
-            <input type="text" required matInput ngModel name="nom" >
+            <input type="text" required matInput ngModel name="name" >
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Prénom</mat-label>
-            <input type="text" required matInput ngModel name="prenom">
+            <input type="text" required matInput ngModel name="firstname">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Telephone</mat-label>
             <span matPrefix>+262 &nbsp;</span>
-            <input type="text" type="tel" matInput ngModel name="numero" placeholder="0692458975" >
+            <input type="text" type="tel" matInput ngModel name="phone" placeholder="0692458975" >
         </mat-form-field>
         <div class="buttons">
-            <button class="greenButton" [disabled]="formulaire.invalid" (click)="addPersonne(formulaire)">Valider</button>
+            <button class="greenButton" [disabled]="form.invalid" (click)="addContact(form)">Valider</button>
             <button class="redButton" onclick="history.back()">Annuler</button>
         </div>
         

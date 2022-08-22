@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ContactComponent } from '../contact/contact.component';
-import { Personne } from '../contact/Personne';
+import { Contact } from "../contact/Personne";
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ApiService } from '../services/api.service';
 })
 export class ResearchComponent implements OnInit {
 
-  contacts:Personne[] = [];
+  contacts:Contact[] = [];
   critere!:string;
   chaine!:string;
 
@@ -22,14 +22,14 @@ export class ResearchComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.critere = String(this.route.snapshot.paramMap.get('crit'));
-    this.chaine = String(this.route.snapshot.paramMap.get('ch'));
+    this.critere = String(this.route.snapshot.paramMap.get('critere'));
+    this.chaine = String(this.route.snapshot.paramMap.get('chaine'));
 
-    if(this.critere=="prenom"){
+    if(this.critere=="firstname"){
       this.getByFirstName();
-    }else if(this.critere=="nom"){
+    }else if(this.critere=="name"){
       this.getByName();
-    }else if(this.critere=="numero"){
+    }else if(this.critere=="phone"){
       this.getByNum();
     }
   }
@@ -66,7 +66,7 @@ export class ResearchComponent implements OnInit {
     window.location.reload();
   }
 
-  public redirectForUpdate(id: number, contact:Personne){
+  public redirectForUpdate(id: number, contact:Contact){
     this.router.navigate([`/set/${id}`]);
   }
 

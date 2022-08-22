@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { Personne } from './Personne';
+import { Contact } from "./Personne";
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
@@ -12,7 +12,7 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 })
 export class ContactComponent implements OnInit {
 
-  contacts!: Observable<Personne[]>;
+  contacts!: Observable<Contact[]>;
 
 
   constructor(private apiService: ApiService,
@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit {
     window.location.reload();
   }
 
-  public redirectForUpdate(id: number, contact:Personne){
+  public redirectForUpdate(id: number, contact:Contact){
     this.router.navigate([`/set/${id}`]);
   }
 

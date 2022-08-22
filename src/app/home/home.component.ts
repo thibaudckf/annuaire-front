@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  ngSelect = "prenom";
+  ngSelect = "firstname";
 
   constructor(private router: Router) { }
 
@@ -17,11 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   public redirectForSearch(form: NgForm){
-    console.log(form.value.critere); 
- 
-    this.router.navigate([`/recherche/critere/${form.value.critere}/chaine/${form.value.recherche}`]);
-    
-      
+    this.router.navigate([`/recherche/critere/${form.value.critere}/chaine/${form.value.research}`]);
   }
 
 }

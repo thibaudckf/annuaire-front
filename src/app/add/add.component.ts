@@ -19,8 +19,8 @@ export class AddComponent implements OnInit {
     
   }
 
-  addPersonne(formumaire: NgForm) {
-    this.apiService.addContact(formumaire.value).subscribe(
+  addContact(form: NgForm) {
+    this.apiService.addContact(form.value).subscribe(
       (reponse) => this.router.navigate(['/liste']),
       (erreur) => console.log(erreur)
     );

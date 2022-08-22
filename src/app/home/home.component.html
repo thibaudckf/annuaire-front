@@ -1,15 +1,15 @@
-<form class="searchForm" #formulaire="ngForm" (ngSubmit)="redirectForSearch(formulaire)" >
+<form class="searchForm" #form="ngForm" (ngSubmit)="redirectForSearch(form)" >
     <div id = "searchBar">
-        <label for="recherche">Rechercher : </label>
-        <input required type="text" id="recherche" ngModel name="recherche">  
+        <label for="research">Rechercher : </label>
+        <input required type="text" id="research" ngModel name="research">  
         <label > Critère de recherche:
             <select [(ngModel)]="ngSelect" name="critere">
-              <option value="nom">Nom</option>
-              <option value="prenom" >Prénom</option>
-              <option value="numero">N° téléphone</option>
+              <option value="name">Nom</option>
+              <option value="firstname" >Prénom</option>
+              <option value="phone">N° téléphone</option>
             </select>
         </label>
-        <button class="greenButton" [disabled]="formulaire.invalid" type="submit" name="search">Rechercher</button>
+        <button class="greenButton" [disabled]="form.invalid" type="submit" name="search">Rechercher</button>
 
     </div>
    

@@ -1,7 +1,7 @@
-export class Personne{
-    public nom!: string;
-    public prenom!: string;
-    public numero! : string;
-    public id! : number;
+export class Contact {
+    public name!: string;
+    public firstname!: string;
+    public phone!: string;
+    public id!: number;
 
 }
