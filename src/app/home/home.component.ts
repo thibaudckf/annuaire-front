@@ -2,16 +2,17 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
-	styleUrls: ['./home.component.scss']
+	styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent{
 
-	ngSelect = 'firstname';
+	ngSelect?: string = 'firstname';
 
-	constructor(private router: Router) { }
+	constructor(private readonly router: Router) { }
 
 
 	public redirectForSearch(form: NgForm){

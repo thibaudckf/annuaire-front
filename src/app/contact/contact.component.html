@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="contacts" *ngFor="let contact of contacts | async">
+    <div class="contacts" *ngFor="let contact of contacts | paginate:{itemsPerPage: itemsNumber, currentPage: currentPg}">
       <div class="card-body">
             <mat-card class="contact-card">
                 <mat-card-header>
@@ -15,6 +15,17 @@
                 </mat-card-actions>
             </mat-card>    
         </div>
-    </div> 
+    </div>
+    <div class="pagination">
+      <pagination-controls (pageChange)="currentPg = $event"></pagination-controls>  
+      <div class="choose">
+        <small>Nombre de contact par page: </small>
+        <input (click)="dec()" type="button" value="-">
+        <span class="itemInd">{{itemsNumber}}</span>
+        <input (click)="inc()" type="button" value="+">
+      </div>
+      
+    </div>
+    
 </div>
 

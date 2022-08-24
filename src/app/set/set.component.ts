@@ -4,37 +4,41 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from '../contact/Personne';
 import { ApiService } from '../services/api.service';
 
+
 @Component({
 	selector: 'app-set',
 	templateUrl: './set.component.html',
-	styleUrls: ['./set.component.scss']
+	styleUrls: ['./set.component.scss'],
 })
 export class SetComponent implements OnInit {
 
 	id!: number;
-	contact: Contact = new Contact();
+	contact!: Contact;
    
 
-	constructor(private apiService: ApiService,
-              private route: ActivatedRoute,
-              private router: Router) { 
+	constructor(private readonly apiService: ApiService,
+              private readonly route: ActivatedRoute,
+              private readonly router: Router) { 
                 
 	}
 
 	ngOnInit(): void {
-
 		this.id = Number(this.route.snapshot.paramMap.get('id'));
 		this.apiService.getById(this.id).subscribe(
-			(contact) => this.contact = contact,
-			(erreur) => console.log(erreur)
+			(contact) => this.assignResult,
+			(erreur) => console.log(erreur),
 		);
     
+	}
+
+	assignResult(res: any){
+		this.contact = res;
 	}
 
 	setContact(id: number, formumaire: NgForm) {
 		this.apiService.setContact(id, formumaire.value).subscribe(
 			() => this.router.navigate(['/liste']),
-			(erreur) => console.log(erreur)
+			(erreur) => console.log(erreur),
 		);
 	}
 
