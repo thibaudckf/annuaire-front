@@ -1,3 +1,9 @@
+<table>
+	<th>Trier par: </th>
+	<td (click)="sortAscDesc('name')">Nom <i class="fa fa-sort"></i></td>
+	<td (click)="sortAscDesc('firstname')">Prenom <i class="fa fa-sort"></i></td>
+	<td (click)="sortAscDesc('phone')">Numero <i class="fa fa-sort"></i></td>
+</table>
 <div class="row">
     <div class="contacts" *ngFor="let contact of contacts | paginate:{itemsPerPage: itemsNumber, currentPage: currentPg}">
       <div class="card-body">

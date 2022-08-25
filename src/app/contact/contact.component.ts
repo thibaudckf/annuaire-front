@@ -14,29 +14,70 @@ export class ContactComponent implements OnInit {
 	contacts: Contact[] = [];
 	currentPg!: number;
 	itemsNumber!: number;
+	isAsc?: boolean = false;
 	
-	
-
 	constructor(private readonly apiService: ApiService,
               private readonly router: Router){}
 
 	ngOnInit(){
 		this.currentPg = 1;
-		this.itemsNumber = 3;
-		this.apiService.getAllContacts().subscribe(result=>this.assignResult(result));	
+		this.itemsNumber = 6;
+
+		this.apiService.getAllContacts().subscribe(
+			(contacts) => {
+				this.contacts = contacts;
+			},
+		);
 	}
 
-	assignResult(res: any){
-		this.contacts = res;
+	sortAscDesc(order: string){
+		this.apiService.getAllContacts().subscribe(
+			(contacts) => {
+				this.contacts = contacts;
+				this.contacts = this.contacts.sort((a, b)=>{
+					let arg1 = '';
+					let arg2 = '';
+					if (order=='name'){
+						arg1 = a.name.toUpperCase(); // ignore upper and lowercase
+						arg2 = b.name.toUpperCase(); // ignore upper and lowercase
+					} else if (order=='firstname'){
+						arg1 = a.firstname.toUpperCase(); 
+						arg2 = b.firstname.toUpperCase(); 
+					} else {
+						arg1 = a.phone.toUpperCase(); 
+						arg2 = b.phone.toUpperCase();
+					}
+					
+					if (this.isAsc===false){
+						if (arg1 < arg2) {
+							return -1;
+						} else if (arg1 > arg2) {
+							return 1;
+						} else {
+							return 0;
+						}
+					} else {
+						if (arg1 > arg2) {
+							return -1;
+						} else if (arg1 < arg2) {
+							return 1;
+						} else {
+							return 0;
+						}
+					}
+				});
+			},
+		);
+		this.isAsc = !this.isAsc;
 	}
 
 
-	public deleteContact(id: number){
+	deleteContact(id: number){
 		this.apiService.deleteContact(id).subscribe();
 		window.location.reload();
 	}
 
-	public redirectForUpdate(id: number){
+	redirectForUpdate(id: number){
 		this.router.navigate([`/set/${id}`]);
 	}
 

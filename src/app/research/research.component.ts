@@ -16,6 +16,7 @@ export class ResearchComponent implements OnInit {
 	chaine!: string;
 	currentPg!: number;
 	itemsNumber!: number;
+	isAsc?: boolean = false;
 
 	constructor(private readonly apiService: ApiService,
               private readonly route: ActivatedRoute,
@@ -27,37 +28,12 @@ export class ResearchComponent implements OnInit {
 		this.critere = String(this.route.snapshot.paramMap.get('critere'));
 		this.chaine = String(this.route.snapshot.paramMap.get('chaine'));
 
-		if (this.critere=='firstname'){
-			this.getByFirstName();
-		} else if (this.critere=='name'){
-			this.getByName();
-		} else if (this.critere=='phone'){
-			this.getByNum();
-		}
-	}
-
-	getByFirstName(){
-		this.apiService.getByFirstName(this.chaine).subscribe(
+		this.apiService.getBySearch(this.critere, this.chaine).subscribe(
 			(contacts) => {
 				this.contacts = contacts;
 			},
 		);
-	}
 
-	getByName(){
-		this.apiService.getByName(this.chaine).subscribe(
-			(contacts) => {
-				this.contacts = contacts;
-			},
-		);
-	}
-
-	getByNum(){
-		this.apiService.getByNum(this.chaine).subscribe(
-			(contacts) => {
-				this.contacts = contacts;
-			},
-		);
 	}
 
 	deleteContact(id: number){
@@ -86,7 +62,46 @@ export class ResearchComponent implements OnInit {
 		}
 		this.currentPg = 1;
 	}
-  
 
-  
+	sortAscDesc(order: string){
+		this.apiService.getBySearch(this.critere, this.chaine).subscribe(
+			(contacts) => {
+				this.contacts = contacts;
+				this.contacts = this.contacts.sort((a, b)=>{
+					let arg1 = '';
+					let arg2 = '';
+					if (order=='name'){
+						arg1 = a.name.toUpperCase(); // ignore upper and lowercase
+						arg2 = b.name.toUpperCase(); // ignore upper and lowercase
+					} else if (order=='firstname'){
+						arg1 = a.firstname.toUpperCase(); 
+						arg2 = b.firstname.toUpperCase(); 
+					} else {
+						arg1 = a.phone.toUpperCase(); 
+						arg2 = b.phone.toUpperCase();
+					}
+					
+					if (this.isAsc===false){
+						if (arg1 < arg2) {
+							return -1;
+						} else if (arg1 > arg2) {
+							return 1;
+						} else {
+							return 0;
+						}
+					} else {
+						if (arg1 > arg2) {
+							return -1;
+						} else if (arg1 < arg2) {
+							return 1;
+						} else {
+							return 0;
+						}
+					}
+				});
+			},
+		);
+		this.isAsc = !this.isAsc;
+	}
+    
 }

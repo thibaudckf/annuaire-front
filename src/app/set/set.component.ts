@@ -25,14 +25,12 @@ export class SetComponent implements OnInit {
 	ngOnInit(): void {
 		this.id = Number(this.route.snapshot.paramMap.get('id'));
 		this.apiService.getById(this.id).subscribe(
-			(contact) => this.assignResult,
+			(contact) => {
+				this.contact = contact;
+			},
 			(erreur) => console.log(erreur),
 		);
     
-	}
-
-	assignResult(res: any){
-		this.contact = res;
 	}
 
 	setContact(id: number, formumaire: NgForm) {
