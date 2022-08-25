@@ -23,7 +23,7 @@ export class ApiService {
 		return this.http.get<Contact>(`${ this.API_URL }findById/${id}`);
 	}
 
-	getBySearch(critere:string, search:string){
+	getBySearch(critere: string, search: string){
 		return this.http.get<Contact[]>(`${ this.API_URL }findBySearch/${critere}/${search}`);
 	}
 
@@ -41,7 +41,7 @@ export class ApiService {
 		return this.http.get<Contact[]>(`${ this.API_URL }findByNum/${num}`);
 	}
 	*/
-	
+
 	addContact(contact: Contact){
 		return this.http.post(this.API_URL, contact);
 	}
